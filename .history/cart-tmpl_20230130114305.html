@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>购物车</title>
+    <title>购物车render版</title>
+    <style>
+      .active {
+        background-color: #ddd;
+      }
+    </style>
   </head>
+
   <body>
     <!-- 宿主文件 -->
-    <div id="app">
-      <h2 :title="title">
-        <!-- 插值文本 -->
-        {{title}}
-      </h2>
-    </div>
+    <div id="app"></div>
     <script src="vue.js"></script>
     <script>
       //1、创建vue实例
@@ -22,9 +23,22 @@
         data() {
           return {
             title: "开课吧购物车",
+            course: "",
+            selectedCourse: "",
+            courses: [],
           };
         },
+        methods: {
+          addCourse() {
+            //1、添加course到数组
+            this.courses.push(this.course);
+            //2、清空course
+            this.course = "";
+          },
+        },
       });
+
+      console.log(app.$options.render);
     </script>
   </body>
 </html>

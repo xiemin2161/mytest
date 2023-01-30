@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>购物车</title>
   </head>
+
   <body>
     <!-- 宿主文件 -->
     <div id="app">
       <h2 :title="title">
         <!-- 插值文本 -->
         {{title}}
+        <!-- 列表渲染 -->
+        <div v-for="c in courses" :key="c">{{ c }}</div>
       </h2>
     </div>
     <script src="vue.js"></script>
@@ -22,6 +25,7 @@
         data() {
           return {
             title: "开课吧购物车",
+            courses: ["web全栈", "web高级"],
           };
         },
       });
