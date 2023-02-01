@@ -12,7 +12,7 @@
   </head>
   <body>
     <div id="box">
-      <button @click="handleClick()">正在热映</button>
+      <button @click="handleClick">正在热映</button>
       <ul>
         <li v-for="data in datalist">{{data}}</li>
       </ul>
@@ -24,19 +24,7 @@
           datalist: [],
         },
         methods: {
-          handleClick() {
-            axios
-              .get("./json/test.json")
-              .then((res) => {
-                // handle success
-                console.log(res.data.data.films);
-                this.datalist = res.data.data.films;
-              })
-              .catch((err) => {
-                // handle error
-                console.log(err);
-              });
-          },
+          handleClick() {},
         },
       });
     </script>

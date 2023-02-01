@@ -12,23 +12,14 @@
   </head>
   <body>
     <div id="box">
-      <input type="checkbox" @change="handleChange" v-model="isAllChecked" />
       <ul>
         <li v-for="data in datalist">
-          <input
-            type="checkbox"
-            v-model="checkgroup"
-            :value="data"
-            @change="handleLiChange"
-          />
+          <input type="checkbox" v-model="checkgroup" :value="data.id" />
           {{data}}
-          <button @click="handleDelClick(data)">-</button>
-          {{data.number}}
-          <button @click="data.number++">+</button>
         </li>
       </ul>
       {{checkgroup}}
-      <p>总金额计算：{{ getSum() }}</p>
+      <p>总金额计算：</p>
     </div>
 
     <script type="text/javascript">
@@ -36,7 +27,6 @@
         el: "#box",
         data: {
           checkgroup: [],
-          isAllChecked: false,
           datalist: [
             {
               name: "商品1",
@@ -57,39 +47,6 @@
               id: "3",
             },
           ],
-        },
-        methods: {
-          getSum() {
-            //函数计算中的状态改变后，函数会自动执行一遍
-            let sum = 0;
-            for (let i in this.checkgroup) {
-              sum += this.checkgroup[i].number * this.checkgroup[i].price;
-            }
-            return sum;
-          },
-          handleChange() {
-            console.log("改变了", this.isAllChecked);
-            if (this.isAllChecked) {
-              this.checkgroup = this.datalist;
-            } else {
-              this.checkgroup = [];
-            }
-          },
-          handleLiChange() {
-            console.log("handleLiChange-判断是不是都勾选");
-            if (this.checkgroup.length === this.datalist.length) {
-              //所有都勾选了
-              this.isAllChecked = true;
-            } else {
-              this.isAllChecked = false;
-            }
-          },
-          handleDelClick(data) {
-            // console.log(data);
-            if (data.number > 1) {
-              data.number--;
-            }
-          },
         },
       });
 

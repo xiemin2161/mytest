@@ -26,15 +26,14 @@
         methods: {
           handleClick() {
             axios
-              .get("./json/test.json")
-              .then((res) => {
+              .get()
+              .then(function (response) {
                 // handle success
-                console.log(res.data.data.films);
-                this.datalist = res.data.data.films;
+                console.log(response);
               })
-              .catch((err) => {
+              .catch(function (error) {
                 // handle error
-                console.log(err);
+                console.log(error);
               });
           },
         },

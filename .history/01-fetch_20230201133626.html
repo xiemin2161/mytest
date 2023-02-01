@@ -13,10 +13,7 @@
     <div id="box">
       <button @click="handleClick">获取影片信息</button>
       <ul>
-        <li v-for="data in datalist">
-          <h3>{{data.name}}</h3>
-          <img :src="data.poster" alt="" />
-        </li>
+        <li v-for="data in datalist">{{data}}</li>
       </ul>
     </div>
     <script type="text/javascript">
@@ -30,8 +27,7 @@
             fetch("./json/test.json")
               .then((res) => res.json())
               .then((res) => {
-                // console.log(res.data.films);
-                this.datalist = res.data.films;
+                console.log(res.data.films);
               });
           },
         },

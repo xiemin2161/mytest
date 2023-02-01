@@ -85,9 +85,10 @@
             }
           },
           handleDelClick(data) {
-            // console.log(data);
-            if (data.number > 1) {
-              data.number--;
+            console.log(data);
+            var number = data.number--;
+            if (number === 0) {
+              data.number = 1;
             }
           },
         },

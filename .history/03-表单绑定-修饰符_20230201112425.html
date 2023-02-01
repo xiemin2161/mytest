@@ -12,17 +12,8 @@
   </head>
   <body>
     <div id="box">
-      <!-- 失去焦点触发 -->
       <input type="text" v-model.lazy="mytext" />
       {{mytext}}
-
-      <!-- 强制数字类型，纯字母不支持，鸡肋 -->
-      <input type="number" v-model.number="mynumber" />
-      {{mynumber}}
-
-      <!-- 去掉收尾空格 -->
-      <input type="text" v-model.trim="myusername" />
-      |{{myusername}}|
     </div>
 
     <script type="text/javascript">
@@ -30,8 +21,6 @@
         el: "#box",
         data: {
           mytext: "",
-          mynumber: 0,
-          myusername: "",
         },
       });
     </script>

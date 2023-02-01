@@ -29,12 +29,11 @@
               .get("./json/test.json")
               .then((res) => {
                 // handle success
-                console.log(res.data.data.films);
-                this.datalist = res.data.data.films;
+                console.log(response);
               })
               .catch((err) => {
                 // handle error
-                console.log(err);
+                console.log(error);
               });
           },
         },

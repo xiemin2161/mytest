@@ -86,8 +86,9 @@
           },
           handleDelClick(data) {
             // console.log(data);
-            if (data.number > 1) {
-              data.number--;
+            var number = data.number--;
+            if (number === 1) {
+              data.number = 1;
             }
           },
         },

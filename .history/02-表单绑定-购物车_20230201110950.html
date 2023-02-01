@@ -22,9 +22,9 @@
             @change="handleLiChange"
           />
           {{data}}
-          <button @click="handleDelClick(data)">-</button>
+          <button>-</button>
           {{data.number}}
-          <button @click="data.number++">+</button>
+          <button>+</button>
         </li>
       </ul>
       {{checkgroup}}
@@ -82,12 +82,6 @@
               this.isAllChecked = true;
             } else {
               this.isAllChecked = false;
-            }
-          },
-          handleDelClick(data) {
-            // console.log(data);
-            if (data.number > 1) {
-              data.number--;
             }
           },
         },

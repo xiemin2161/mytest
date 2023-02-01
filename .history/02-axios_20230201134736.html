@@ -29,8 +29,7 @@
               .get("./json/test.json")
               .then((res) => {
                 // handle success
-                console.log(res.data.data.films);
-                this.datalist = res.data.data.films;
+                console.log(res);
               })
               .catch((err) => {
                 // handle error
