@@ -54,7 +54,9 @@
         <!-- 表达式 -->
         <!-- 课程总数：{{courses.length + '门'}} -->
         <!-- 计算属性 -->
-        课程总数：{{total}}
+        <!-- 课程总数：{{total}} -->
+        <!-- 监听器 -->
+        课程总数：{{totalCount}}
       </p>
     </div>
     <script src="vue.js"></script>
@@ -67,7 +69,8 @@
             title: "开课吧购物车",
             course: "",
             selectedCourse: "",
-            courses: [],
+            courses: ["web全栈", "web高级"],
+            totalCount: 0,
           };
         },
         methods: {
@@ -82,6 +85,11 @@
           total() {
             //计算属性有缓存性，如果值没有发生变化，则页面不会重新渲染
             return this.courses.length + "门";
+          },
+        },
+        watch: {
+          courses(newValue, oldValue) {
+            this.totalCount = newValue.length + "门";
           },
         },
       });
