@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Examples</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link href="" rel="stylesheet" />
+
+    <script type="text/javascript" src="lib/vue.js"></script>
+  </head>
+  <body>
+    <div id="box">
+      <child>
+        <div>aaaaaaaaaa</div>
+        <div>bbbbbbbbb</div>
+      </child>
+      <swiper>
+        <li v-for="data in datalist"></li>
+      </swiper>
+    </div>
+
+    <script type="text/javascript">
+      Vue.component("child", {
+        template: `
+          <div>
+            child
+            <slot></slot>
+          </div>
+        `,
+      });
+      Vue.component("swiper", {
+        template: `
+          <ul>
+            <slot></slot>
+          </ul>
+        `,
+      });
+      new Vue({
+        el: "#box",
+        data: {
+          datalist: ["1111", "22222222", "333"],
+        },
+      });
+    </script>
+  </body>
+</html>
